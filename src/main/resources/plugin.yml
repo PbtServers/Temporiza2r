@@ -1,0 +1,12 @@
+name: Plugin
+version: 1.0
+main: pbtservers.plugin.Plugin
+api-version: 1.16
+prefix: [ Plugin ]
+authors: [ Pbt ]
+description: esto es un Plugin
+website: mc.pbtservers.com
+commands:
+  plugin:
+    aliases: plugintest
+    description: El Comando Principal del Plugin
