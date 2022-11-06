@@ -1,2 +1,2 @@
-# PbtPlantilla-MCPlugins
-Plantilla de Plugins para Minecraft de PbtServers
+# Temporiza2r
+Temporizador Personalizable de PbtServers para Eventos
