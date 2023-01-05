@@ -1,12 +1,8 @@
-name: Plugin
+name: Temporiza2r
 version: 1.0
-main: pbtservers.plugin.Plugin
+main: pbtservers.temporiza2r.Temporiza2r
 api-version: 1.16
-prefix: [ Plugin ]
+prefix: [ Temporiza2r ]
 authors: [ Pbt ]
-description: esto es un Plugin
+description: Plugin Implementando un Temporizador para Eventos en Minecraft
 website: mc.pbtservers.com
-commands:
-  plugin:
-    aliases: plugintest
-    description: El Comando Principal del Plugin

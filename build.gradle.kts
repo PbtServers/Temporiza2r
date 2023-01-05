@@ -1,21 +1,23 @@
 import dev.s7a.gradle.minecraft.server.tasks.LaunchMinecraftServerTask
+import kr.entree.spigradle.kotlin.*
 
 plugins {
     java
     id("dev.s7a.gradle.minecraft.server") version "1.2.0"
+    id("kr.entree.spigradle") version "2.4.3"
 }
 
 task<LaunchMinecraftServerTask>("ArrancarPaperTestServer") {
     dependsOn("build") // build task (build, jar, shadowJar, ...)
     doFirst {
         copy {
-            from(buildDir.resolve("libs/Plugin-1.0.jar")) // build/libs/example.jar
+            from(buildDir.resolve("libs/Temporiza2r-1.0.jar")) // build/libs/example.jar
             into(buildDir.resolve("MinecraftPaperServer/plugins")) // build/MinecraftPaperServer/plugins
         }
     }
 
-    jarUrl.set("https://papermc.io/api/v2/projects/paper/versions/1.18.2/builds/287/downloads/paper-1.18.2-287.jar")
-    jarName.set("paper-1.18.2-287.jar")
+    jarUrl.set("https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar")
+    jarName.set("paper-1.16.5-794.jar")
     serverDirectory.set(buildDir.resolve("MinecraftPaperServer")) // build/MinecraftPaperServer
     nogui.set(true)
 
@@ -35,12 +37,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly(spigot("1.16.5"))
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 fun <T> ListProperty<T>.set(element: Array<T>) {
