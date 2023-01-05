@@ -12,9 +12,7 @@ public final class Temporiza2r extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
         log.info("Plugin Temporiza2r Habilitado!");
-
     }
 
     @Override
