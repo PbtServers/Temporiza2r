@@ -6,3 +6,7 @@ prefix: [ Temporiza2r ]
 authors: [ Pbt ]
 description: Plugin Implementando un Temporizador para Eventos en Minecraft
 website: mc.pbtservers.com
+commands:
+  temporiza2r:
+    aliases: t2r
+    description: El Comando Principal del Temporizador

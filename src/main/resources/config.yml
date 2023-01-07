@@ -7,4 +7,4 @@
 #    Temporiza2r - Configuración
 # ------------------------------------------
 
-Variable: 0
+TemporizadorActivo: false
