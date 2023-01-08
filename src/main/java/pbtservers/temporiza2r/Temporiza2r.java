@@ -17,10 +17,14 @@ public final class Temporiza2r extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        this.getConfig().set("TemporizadorActivo", false);
+
         Temporiza2rComando Temporiza2rComando = new Temporiza2rComando(this);
         Temporiza2rTabComplete Temporiza2rTabComplete = new Temporiza2rTabComplete();
+
         Objects.requireNonNull(getCommand("Temporiza2r")).setExecutor(Temporiza2rComando);
         Objects.requireNonNull(getCommand("Temporiza2r")).setTabCompleter(Temporiza2rTabComplete);
+
         log.info("Plugin Temporiza2r Habilitado!");
     }
 
