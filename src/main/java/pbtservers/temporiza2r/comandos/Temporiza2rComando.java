@@ -30,8 +30,8 @@ public class Temporiza2rComando implements CommandExecutor {
                 Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a7b\u00a7lGracias por Confiar en \u00a7c\u00a7lPbt\u00a76\u00a7lServers\u00a7b\u00a7l! \u00a77-\u00a7c\u00a7lPbt");
             } else {
                 JugadorBase.sendMessage("\u00a76\u00a7lTemporiza2r \u00a7b\u00a7lArgumentos \u00a77\u00a7l-->");
-                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a77aCrear \u00a77(\u00a77a$Tiempo-en-Segundos\u00a77)");
-                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a77aEliminar");
+                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a7aCrear \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a7aEliminar");
                 JugadorBase.sendMessage("\u00a7b\u00a7lGracias por Confiar en \u00a7c\u00a7lPbt\u00a76\u00a7lServers\u00a7b\u00a7l! \u00a77-\u00a7c\u00a7lPbt");
             }
         } else if (args[0].equalsIgnoreCase("Crear")) {
