@@ -18,8 +18,6 @@ public class Temporiza2rComando implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender JugadorBase, Command cmd, String label, String[] args) {
 
-        boolean TemporizadorActivo = Temporiza2r.getConfig().getBoolean("TemporizadorActivo");
-
         if (args.length == 0) {
             if (JugadorBase instanceof Player) {
                 Player Jugador = (Player) JugadorBase;
@@ -37,15 +35,37 @@ public class Temporiza2rComando implements CommandExecutor {
             if (args.length != 2) {
                 if (JugadorBase instanceof Player) {
                     Player Jugador = (Player) JugadorBase;
-                    Jugador.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                    Jugador.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
                 } else {
-                    JugadorBase.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                    JugadorBase.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
                 }
             } else {
-                new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1])-1);
+                if (JugadorBase instanceof Player) {
+                    Player Jugador = (Player) JugadorBase;
+                    if (Jugador.hasPermission("temporiza2r.crear") | Jugador.isOp()) {
+                        new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1])-1);
+                        Jugador.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7aTemporizador Configurado a " + args[1] + "s");
+                    } else {
+                        Jugador.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7cNo Tienes Permiso para Hacer Eso!");
+                    }
+                } else {
+                    new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1])-1);
+                    JugadorBase.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7aTemporizador Configurado a " + args[1] + "s");
+                }
             }
         } else if (args[0].equalsIgnoreCase("Eliminar")) {
-            new Reloj().PararTemporizador();
+            if (JugadorBase instanceof Player) {
+                Player Jugador = (Player) JugadorBase;
+                if (Jugador.hasPermission("temporiza2r.eliminar") | Jugador.isOp()) {
+                    new Reloj().PararTemporizador();
+                    Jugador.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7aTemporizador Eliminado");
+                } else {
+                    Jugador.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7cNo Tienes Permiso para Hacer Eso!");
+                }
+            } else {
+                new Reloj().PararTemporizador();
+                JugadorBase.sendMessage("\u00a77[\u00a76\u00a7lTemporiza2r\u00a77] " + "\u00a7aTemporizador Eliminado");
+            }
         }
         return true;
     }

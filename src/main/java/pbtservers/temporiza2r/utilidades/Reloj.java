@@ -56,7 +56,6 @@ public class Reloj {
     public void PararTemporizador() {
         Bukkit.getScheduler().cancelTask(taskID);
         plugin.getConfig().set("TemporizadorActivo", false);
-        interfaz.setVisible(false);
     }
 
 }
