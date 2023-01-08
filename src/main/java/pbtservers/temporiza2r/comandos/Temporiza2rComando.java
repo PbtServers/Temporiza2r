@@ -36,7 +36,7 @@ public class Temporiza2rComando implements CommandExecutor {
             }
         } else if (args[0].equalsIgnoreCase("Crear")) {
             new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1]));
-        } else if (args[0].equalsIgnoreCase("Crear")) {
+        } else if (args[0].equalsIgnoreCase("Eliminar")) {
             new Reloj().PararTemporizador();
         }
 
