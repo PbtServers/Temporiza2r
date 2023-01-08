@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import pbtservers.temporiza2r.Temporiza2r;
 import pbtservers.temporiza2r.utilidades.Reloj;
-
 public class Temporiza2rComando implements CommandExecutor {
 
     @SuppressWarnings("unused")
@@ -35,7 +34,7 @@ public class Temporiza2rComando implements CommandExecutor {
                 JugadorBase.sendMessage("\u00a7b\u00a7lGracias por Confiar en \u00a7c\u00a7lPbt\u00a76\u00a7lServers\u00a7b\u00a7l! \u00a77-\u00a7c\u00a7lPbt");
             }
         } else if (args[0].equalsIgnoreCase("Crear")) {
-            if (args[1].isEmpty()) {
+            if (args.length != 2) {
                 if (JugadorBase instanceof Player) {
                     Player Jugador = (Player) JugadorBase;
                     Jugador.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
@@ -43,7 +42,7 @@ public class Temporiza2rComando implements CommandExecutor {
                     JugadorBase.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
                 }
             } else {
-                new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1]));
+                new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1])-1);
             }
         } else if (args[0].equalsIgnoreCase("Eliminar")) {
             new Reloj().PararTemporizador();
