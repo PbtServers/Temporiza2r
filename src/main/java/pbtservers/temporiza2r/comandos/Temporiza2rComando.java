@@ -25,21 +25,29 @@ public class Temporiza2rComando implements CommandExecutor {
             if (JugadorBase instanceof Player) {
                 Player Jugador = (Player) JugadorBase;
                 Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a76\u00a7lTemporiza2r \u00a7b\u00a7lArgumentos \u00a77\u00a7l-->");
-                Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a77\u00a7l--> \u00a77aCrear \u00a77(\u00a77a$Tiempo\u00a77)");
-                Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a77\u00a7l--> \u00a77aEliminar");
+                Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a77--> \u00a7aCrear \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a77--> \u00a7aEliminar");
                 Jugador.sendMessage(Jugador.getPlayer().getUniqueId(), "\u00a7b\u00a7lGracias por Confiar en \u00a7c\u00a7lPbt\u00a76\u00a7lServers\u00a7b\u00a7l! \u00a77-\u00a7c\u00a7lPbt");
             } else {
                 JugadorBase.sendMessage("\u00a76\u00a7lTemporiza2r \u00a7b\u00a7lArgumentos \u00a77\u00a7l-->");
-                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a7aCrear \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
-                JugadorBase.sendMessage("\u00a77\u00a7l--> \u00a7aEliminar");
+                JugadorBase.sendMessage("\u00a77--> \u00a7aCrear \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                JugadorBase.sendMessage("\u00a77--> \u00a7aEliminar");
                 JugadorBase.sendMessage("\u00a7b\u00a7lGracias por Confiar en \u00a7c\u00a7lPbt\u00a76\u00a7lServers\u00a7b\u00a7l! \u00a77-\u00a7c\u00a7lPbt");
             }
         } else if (args[0].equalsIgnoreCase("Crear")) {
-            new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1]));
+            if (args[1] == null) {
+                if (JugadorBase instanceof Player) {
+                    Player Jugador = (Player) JugadorBase;
+                    Jugador.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                } else {
+                    JugadorBase.sendMessage("\u00a7c--> Falta un Segundo Argumento con el \u00a77(\u00a7a$Tiempo-en-Segundos\u00a77)");
+                }
+            } else {
+                new Reloj().ConfigurarTemporizador(Integer.parseInt(args[1]));
+            }
         } else if (args[0].equalsIgnoreCase("Eliminar")) {
             new Reloj().PararTemporizador();
         }
-
         return true;
     }
 }
